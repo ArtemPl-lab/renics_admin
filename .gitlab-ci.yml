@@ -1,0 +1,22 @@
+stages:
+    - build
+    - deploy
+build:
+    stage: build
+    script:
+        - echo "Building deploy package"
+        - npm install
+        - npm run build
+        - echo "Build successful"
+    artifacts:
+        expire_in: 1 hour
+        paths:
+            - build
+deploy_production:
+    stage: deploy
+    script:
+        - echo "Deploying to server"
+        - cp -rv build/* /var/www/admin.renics.org/
+        - echo "Deployed"
+    only:
+        - master

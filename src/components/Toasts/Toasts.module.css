@@ -1,0 +1,7 @@
+.wrapper{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    z-index: 15;
+}
